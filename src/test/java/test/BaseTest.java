@@ -1,4 +1,5 @@
-import jdk.nashorn.internal.parser.JSONParser;
+package test;
+
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -13,22 +14,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 @RunWith(BlockJUnit4ClassRunner.class)
-public class InfoPageTest extends TestCase {
+public class BaseTest extends TestCase {
 
     private static ChromeDriverService service;
-    private WebDriver driver;
+    public static WebDriver driver;
     ClassLoader classLoader = getClass().getClassLoader();
 
     @BeforeClass
-    public static void createAndStartService() throws IOException {
+    public static void setUpTests() throws IOException {
         service = new ChromeDriverService.Builder()
                 .usingDriverExecutable(new File("/Users/power/powem/code/InstafinTests/src/test/resources/chromedriver"))  //todo make this dynamic
                 .usingAnyFreePort()
@@ -50,11 +48,5 @@ public class InfoPageTest extends TestCase {
     @After
     public void quitDriver() {
         driver.quit();
-    }
-
-    @Test
-    public void testInfoPage() throws InterruptedException {
-        driver.get("https://qaepower.instafin.info/");
-        Thread.sleep(5000);
     }
 }
