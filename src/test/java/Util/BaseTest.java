@@ -1,4 +1,4 @@
-package test;
+package Util;
 
 import junit.framework.TestCase;
 import org.junit.After;
@@ -23,7 +23,6 @@ public class BaseTest extends TestCase {
 
     private static ChromeDriverService service;
     public static WebDriver driver;
-    ClassLoader classLoader = getClass().getClassLoader();
 
     @BeforeClass
     public static void setUpTests() throws IOException {
