@@ -24,6 +24,15 @@ public class DashboardPageTest extends BaseTest {
 
     /**
      * Test #2
+     * When the dashboard page is shown, the dashboard title should be shown
+     */
+    @Test
+    public void testDashboardPage_dashboardTitle() {
+        assertEquals(DashboardStrings.DASHBOARD_TITLE, page.getDashboardTitle().getText());
+    }
+
+    /**
+     * Test #2.1
      * When the dashboard page is shown, the activity stream should be shown with the most recent 10 records
      */
     @Test
