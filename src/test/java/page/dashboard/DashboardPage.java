@@ -14,6 +14,6 @@ public class DashboardPage {
     }
 
     public WebElement getDashboardTitle(){
-        return  driver.findElement(By.xpath("//h1[(@text='Dashboard')]"));
+        return  driver.findElement(By.xpath("//h1[contains(text(), 'Dashboard')]"));
     }
 }
