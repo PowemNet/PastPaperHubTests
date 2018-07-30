@@ -17,17 +17,20 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class BaseTest extends TestCase {
 
     private static ChromeDriverService service;
     public static WebDriver driver;
+    static String resourceUrl = BaseTest.class.getClassLoader().getResource("chromedriver").getFile();
 
     @BeforeClass
     public static void setUpTests() throws IOException {
         service = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("/Users/power/powem/code/InstafinTests/src/test/resources/chromedriver"))  //todo make this dynamic
+                .usingDriverExecutable(new File(resourceUrl))
                 .usingAnyFreePort()
                 .build();
         service.start();
