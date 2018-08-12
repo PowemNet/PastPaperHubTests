@@ -1,27 +1,23 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import page.dashboard.DashboardPage;
+import page.home.HomePage;
 import page.login.LoginPage;
-import page.login.LoginStrings;
+import page.login.LoginPageStrings;
 
 public class NavigationHelper {
 
-    public static final String URL = "https://qaepower.instafin.info/dashboard";
+    public static final String URL = "http://localhost:5000/";
     public static WebDriver driver;
 
     public NavigationHelper(WebDriver driver) {
         this.driver = driver;
     }
 
-    public DashboardPage navigateFromLoginPageToDashboardPage(){
+    public HomePage navigateFromLoginPageToHomePage(){
         driver.get(LoginPage.URL);
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.getUsername().sendKeys(LoginStrings.USERNAME);
-        loginPage.getPassword().sendKeys(LoginStrings.PASSWORD);
-        loginPage.getSubmitButton().click();
-        return new DashboardPage(driver);
+        loginPage.getFacebookButton().click();
+        return new HomePage(driver);
     }
 }

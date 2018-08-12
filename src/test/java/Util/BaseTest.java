@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -43,8 +44,11 @@ public class BaseTest extends TestCase {
 
     @Before
     public void createDriver() {
+//        driver = new RemoteWebDriver(service.getUrl(),
+//                DesiredCapabilities.chrome());
         driver = new RemoteWebDriver(service.getUrl(),
-                DesiredCapabilities.chrome());
+                new ChromeOptions());
+        //todo : log user out before any test starts
     }
 
     @After

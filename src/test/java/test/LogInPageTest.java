@@ -1,16 +1,11 @@
 package test;
 
 import Util.BaseTest;
-import Util.DateUtil;
-import Util.User;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import page.dashboard.DashboardPage;
+import page.home.HomePage;
 import page.login.LoginPage;
-import page.login.LoginStrings;
-
-import java.util.Calendar;
+import page.login.LoginPageStrings;
 
 public class LogInPageTest extends BaseTest {
 
@@ -23,25 +18,40 @@ public class LogInPageTest extends BaseTest {
     }
 
     /**
-     * Test #1.3.3
-     * When a user clicks the sign in button with all fields filled in with valid data,
-     * the dashboard page should be shown, and the event logged in the activity stream
+     * Test #1
+     * when this screen is launched, the correct Title should be shown
      */
     @Test
-    public void testLoginPage_submitButton() {
-        page.getUsername().sendKeys(LoginStrings.USERNAME);
-        page.getPassword().sendKeys(LoginStrings.PASSWORD);
-        page.getSubmitButton().click();
-        Calendar cal = Calendar.getInstance();
-        String dateNow = DateUtil.getDashboardActibityStreamDateString(cal.getTime());
+    public void testLoginPage_title() {
+        assertEquals(LoginPageStrings.TITLE, page.getTitle().getText());
+    }
 
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        assertTrue(dashboardPage.getDashboardTitle().isDisplayed());
+    /**
+     * Test #3
+     * when this screen is launched, the correct description should be shown
+     */
+    @Test
+    public void testLoginPage_description() {
+        assertEquals(LoginPageStrings.DESCRIPTION, page.getDescription().getText());
+    }
 
-        WebElement activityItemOne = dashboardPage.getActivityStream().get(0);
-        assertEquals(User.NAME, dashboardPage.getActivityItemUser(activityItemOne).getText());
-        //todo: assert that "logged in" text is shown
-        assertEquals(dateNow, dashboardPage.getActivityItemInfo(activityItemOne).getText());  //BUG. this test fails because the time is not formatted to
-        //Nairobi local time! The shown on the page is 2 hours behind
+    /**
+     * Test #3
+     * when this screen is launched, the get started with facebook button should be shown
+     */
+    @Test
+    public void testLoginPage_facebookButton() {
+        assertEquals(LoginPageStrings.FACEBOOK_BUTTON_TEXT, page.getFacebookButton().getText());
+    }
+
+    /**
+     * Test #4
+     * when the facebook button is shown, and it's clicked, the home screen should be shown
+     */
+    @Test
+    public void testLoginPage_whenFacebookButtonClicked_homePageShouldBeShown() {
+        page.getFacebookButton().click();
+        HomePage homePage = new HomePage(driver);
+        assertTrue(homePage.isPageShown());
     }
 }
