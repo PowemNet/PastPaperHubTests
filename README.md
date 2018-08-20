@@ -6,7 +6,7 @@ To run tests locally:
 -Run tests with `gradle test` in the PastPaperHubTests root folder.
 (Make sure you have Google Chrome installed)
 
-# Chrome Driver
+# Chrome Driver for windowws os
 Different chrome driver is required for different operating systems. Here is the link for windows os https://sites.google.com/a/chromium.org/chromedriver/downloads .
 
 Download the chrome driver from the link above click on the 'latest realease chrome 2.41'
