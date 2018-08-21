@@ -22,3 +22,10 @@ When the installation process starts, keep clicking next button to continue. Con
 Then open Command prompt from your PC, then type java then click enter, after it runs, type java -version the click enter.
 Done you've installed java in your pc!
 
+# Downloading gradle to your pc
+To download gradle, make sure you have installed java jdk. To confirm you have this, open command prompt and type out java -version then press enter, If its not installed you will get an error that javac is not recognised. If you get this error download and install java jdk (Instructions are above)
+If java is installed proceed to download gradle using this link https://gradle.org/
+Once you have downloaded, extract the gradle download to the program files folder, then add location of your gradle bin folder to your path. To do this open sytem properties, select the advanced tab and the environment variables button then add'C:\Program Files\gradle-94.x\bin” to the end of your “Path” variable under System Properties. 
+Be sure to omit any quotation marks around the path even if it contains spaces. Also make sure you separated from previous PATH entries with a semicolon “;”.
+In the same dialog, make sure that JAVA_HOME exists in your user variables or in the system variables and it is set to the location of your JDK, e.g. C:\Program Files\Java\jdk1.7.0_06 and that %JAVA_HOME%\bin is in your Path environment variable.
+Open a new command prompt (type cmd in Start menu) and run gradle –version to verify that it is correctly installed.
