@@ -26,7 +26,7 @@ public class BaseTest extends TestCase {
 
     private static ChromeDriverService service;
     public static WebDriver driver;
-    static String resourceUrl = BaseTest.class.getClassLoader().getResource("chromedriver").getFile();
+    static String resourceUrl = BaseTest.class.getClassLoader().getResource("chromedriver.exe").getFile();
 
     @BeforeClass
     public static void setUpTests() throws IOException {

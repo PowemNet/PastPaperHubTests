@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 
 public class HomePage {
 
-    public static final String URL = "http://localhost:5000/";
+    public static final String URL = "http://localhost:/";
     public static WebDriver driver;
 
     public HomePage(WebDriver driver) {

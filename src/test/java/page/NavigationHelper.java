@@ -20,4 +20,6 @@ public class NavigationHelper {
         loginPage.getFacebookButton().click();
         return new HomePage(driver);
     }
+
 }
+
